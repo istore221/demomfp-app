@@ -1,0 +1,47 @@
+.no-padding{
+  padding: 0px !important;
+}
+
+.no-margin{
+  margin: 0px !important;
+}
+
+@for $i from 1 through 22{
+   .pd-#{$i} {
+     padding: #{$i}px !important;
+   }
+}
+
+
+@for $i from 1 through 22{
+   .mg-#{$i} {
+     margin: #{$i}px !important;
+   }
+}
+
+
+@for $i from 1 through 22{
+   .mg-top-#{$i} {
+     margin-top: #{$i}px !important;
+   }
+}
+
+@for $i from 1 through 22{
+   .mg-right-#{$i} {
+     margin-right: #{$i}px !important;
+   }
+}
+
+
+@for $i from 1 through 22{
+   .mg-bottom-#{$i} {
+     margin-bottom: #{$i}px !important;
+   }
+}
+
+
+@for $i from 1 through 22{
+   .mg-left-#{$i} {
+     margin-left: #{$i}px !important;
+   }
+}

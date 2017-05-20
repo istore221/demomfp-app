@@ -1,0 +1,32 @@
+<ion-menu [content]="sideNav" >
+
+<ion-header>
+  <ion-toolbar>
+    <div class="header" padding>
+      <img src="assets/img/default-avatar.jpeg" class="img-avatar" />
+      <!-- <h3 class="title">Ekhitiar Mahmud</h3> -->
+      <div class="emptyName"></div><div class="emptyName second"></div><br/>
+      <div class="emptyName"></div><div class="emptyName second"></div>
+    </div>
+    <div class="footer"></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item class="item-icon-left active" [class.active]="isActive(navItem)"  *ngFor="let navItem of sideNavItems" (click)="navItem.task()" ion-item menuClose>
+      <ion-icon name="{{navItem.icon}}"></ion-icon> {{navItem.tittle}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+
+
+
+</ion-menu>
+
+
+
+<ion-nav [root]="rootPage" #sideNav swipeBackEnabled="false" ></ion-nav>

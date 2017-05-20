@@ -1,0 +1,30 @@
+
+<ion-header no-border>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+<div class="person-profile">
+
+  <img src="{{person.avatar}}" class="img-avatar" />
+  <h3>{{person.name}}</h3>
+  <button *ngIf="person.url !== 'undefined'" ion-button icon-right  color="secondary" class="no-margin" (click)="openUrl()">
+      <ion-icon name="planet"></ion-icon> URL
+  </button>
+
+</div>
+
+
+
+<agm-map id="map" [latitude]="person.latitude" [longitude]="person.longitude" [zoom]=17>
+  <agm-marker [latitude]="person.latitude" [longitude]="person.longitude"></agm-marker>
+</agm-map>
+
+
+
+</ion-content>

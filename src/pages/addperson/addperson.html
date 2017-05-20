@@ -1,0 +1,34 @@
+<ion-content class="dialog">
+<div class="overlay"></div>
+<ion-content  class="popup">
+ <ion-icon class="dismiss" name="close" (click)="closeModal()"></ion-icon>
+
+ <div class="person-profile">
+
+   <img src="assets/img/default-avatar.jpeg" #avatar class="img-avatar" />
+   <h3>{{person.name.formatted}}</h3>
+ </div>
+
+
+
+
+ <ion-list class="detail-list pd-8">
+     <ion-item>
+       <ion-label  class="label" stacked>Name</ion-label>
+       <ion-input  placeholder="Full Name"  [(ngModel)]="person.name.formatted"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label  class="label" stacked>URL</ion-label>
+       <ion-input  placeholder="Profile URL" [(ngModel)]="person.url"></ion-input>
+     </ion-item>
+     <br/>
+     <button  ion-button icon-right full color="secondary" (click)="takePhoto(avatar)">
+       <ion-icon name="camera"></ion-icon> Take A Photo
+     </button>
+
+
+
+ </ion-list>
+
+</ion-content>
+</ion-content>

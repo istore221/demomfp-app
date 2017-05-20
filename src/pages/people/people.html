@@ -1,0 +1,36 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>people</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <p *ngIf="people.length <= 0" text-center class="no-content">No People Found</p>
+
+
+  <ion-list class="people-list">
+    <ion-item *ngFor="let person of people" (click)="goTo(person)">
+      <div class="people-item">
+        <img src="{{person.avatar}}" />
+        <div class="content">
+          <h3>{{person.name}}</h3>
+          <ion-icon name="options"></ion-icon>
+        </div>
+      </div>
+
+    </ion-item>
+  </ion-list>
+
+
+  <ion-fab bottom right #fab>
+     <button ion-fab> <ion-icon name="apps"></ion-icon></button>
+     <ion-fab-list side="top">
+       <button ion-fab (click)="createPerson(fab)"> <ion-icon name="create"></ion-icon></button>
+     </ion-fab-list>
+   </ion-fab>
+
+</ion-content>
