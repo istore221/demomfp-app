@@ -1,7 +1,7 @@
 
 
 import { Component , ViewChild , Renderer } from '@angular/core';
-import { Platform , Nav , Events  } from 'ionic-angular';
+import { Platform , Nav , Events , AlertController  } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
@@ -40,9 +40,10 @@ export class MyApp {
   sideNavItems:MenuItem[] = null;
   activePage:any = HomePage;
   events:Events = null;
+  private AuthHandler: any;
 
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,events: Events,public sqlite: SQLite,public network: Network,public renderer:Renderer,private push: PushProvider) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,events: Events,public sqlite: SQLite,public network: Network,public renderer:Renderer,private push: PushProvider,private alertCtrl: AlertController) {
 
 
 
@@ -57,7 +58,7 @@ export class MyApp {
 
 
         alert("Network Connectivity Not found");
-        
+
       }
 
       statusBar.styleLightContent();
@@ -102,6 +103,7 @@ export class MyApp {
 
   MFPInitComplete(){
     console.log('--> MFPInitComplete function called')
+    this.AuthInit();
     this.rootPage = HomePage;
     WL.Analytics.send();
     setInterval(function() {
@@ -130,14 +132,7 @@ export class MyApp {
 
     this.sideNavItems = [
 
-      {
-        icon:'md-send',
-        tittle:'Login',
-        page:null,
-        task:()=>{
 
-        }
-      },
      {
        icon:'md-people',
        tittle:'People',
@@ -198,6 +193,57 @@ configureDatabase(){
 
    return this.activePage == page.page;
  };
+
+
+
+ AuthInit(){
+    this.AuthHandler = WL.Client.createSecurityCheckChallengeHandler("LoginRequiredCheckResource");
+
+    this.AuthHandler.handleChallenge = ((response) => {
+        console.log('--> inside handleChallenge');
+
+        if(response.errorMsg){
+          var msg = response.errorMsg + '<br>';
+          msg += 'Remaining attempts: ' + response.remainingAttempts;
+        }
+       this.displayLogin(msg);
+    })
+
+  }
+
+  displayLogin(msg:any){
+
+    let alert = this.alertCtrl.create({
+     title: 'Login',
+     message: msg,
+     inputs: [
+       {
+          name: 'username',
+          placeholder: 'Username'
+        },
+        {
+          name: 'password',
+          placeholder: 'Password',
+          type: 'password'
+        },
+     ],
+     buttons: [
+       {
+          text: 'Login',
+          handler: data => {
+            console.log('--> Trying to auth with user', data.username);
+
+            this.AuthHandler.submitChallengeAnswer(data);
+          }
+        }
+     ]
+   });
+   alert.present();
+
+
+  }
+
+
 
 
 
