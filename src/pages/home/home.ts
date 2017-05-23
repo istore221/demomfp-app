@@ -47,4 +47,9 @@ export class HomePage {
     this.events.publish('page:home');
   }
 
+  ionViewDidLoad(){
+    WL.Analytics.log({ AppView: 'home' }, "visit home");
+    WL.Analytics.send();
+  }
+
 }

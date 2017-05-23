@@ -8,6 +8,9 @@ import { HomePage } from '../pages/home/home';
 import { PeoplePage } from '../pages/people/people';
 import {PersonPage} from '../pages/person/person';
 import {AddpersonPage} from '../pages/addperson/addperson';
+import {Categoriespage} from '../pages/categories/categories';
+import {companyPage} from '../pages/companies/companies';
+
 
 
 
@@ -24,6 +27,8 @@ import {GoogleMapsAPIWrapper} from '@agm/core/services/google-maps-api-wrapper';
     PeoplePage,
     PersonPage,
     AddpersonPage,
+    Categoriespage,
+    companyPage
 
   ],
   imports: [
@@ -43,7 +48,9 @@ import {GoogleMapsAPIWrapper} from '@agm/core/services/google-maps-api-wrapper';
     HomePage,
     PeoplePage,
     PersonPage,
-    AddpersonPage
+    AddpersonPage,
+    Categoriespage,
+    companyPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,11 @@
+Node version: v6.10.3
+
+Cordova version: 7.0.1
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="biz.nable.demomfpapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
+<widget id="biz.nable.demomfpapp" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:mfp="http://www.ibm.com/mobilefirst/cordova-plugin-mfp">
     <name>demomfpapp</name>
     <description>Demo App for MFP.</description>
     <author email="kalana@n-able.biz" href="kalana@n-able.biz">N-able Application Development Team</author>
@@ -138,3 +144,19 @@
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-mfp" spec="^8.0.2017033009" />
 </widget>
+
+
+Plugins: 
+
+cordova-plugin-camera,cordova-plugin-compat,cordova-plugin-console,cordova-plugin-contacts,cordova-plugin-device,cordova-plugin-file,cordova-plugin-filepath,cordova-plugin-geolocation,cordova-plugin-mfp,cordova-plugin-network-information,cordova-plugin-okhttp,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-whitelist,cordova-sqlite-storage,ionic-plugin-keyboard
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: android: Command failed with exit code ENOENT
+
+iOS platform:
+
+Xcode 7.2.1
+Build version 7C1002
+

@@ -32,9 +32,12 @@ export class AddpersonPage {
 
   }
 
-  ionViewDidLoad() {
 
+  ionViewDidLoad(){
+    WL.Analytics.log({ AppView: 'add person' }, "visit addperson");
+    WL.Analytics.send();
   }
+
 
   closeModal() {
     this.viewCtrl.dismiss((this.personAdded ? this.person.name.formatted : null));

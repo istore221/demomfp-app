@@ -9,11 +9,12 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 import { HomePage } from '../pages/home/home';
 import { PeoplePage } from '../pages/people/people';
+import { Categoriespage } from '../pages/categories/categories';
 import { Network } from '@ionic-native/network';
 
 import {PushProvider} from '../providers/push-provider/push-provider';
 
-
+declare var window: any;
 
 
 interface MenuItem{
@@ -43,12 +44,22 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,events: Events,public sqlite: SQLite,public network: Network,public renderer:Renderer,private push: PushProvider) {
 
+
+
     renderer.listenGlobal('document', 'mfpjsloaded', () => {
         console.log('--> MobileFirst API init complete');
         this.MFPInitComplete();
     });
 
     platform.ready().then(() => {
+
+      if(this.network.type == "none"){
+
+
+        alert("Network Connectivity Not found");
+        
+      }
+
       statusBar.styleLightContent();
       splashScreen.hide();
       this.initSideNav();
@@ -58,16 +69,12 @@ export class MyApp {
         this.activePage = HomePage;
       });
 
+
+
+
       //https://github.com/csantanapr/mfp8-ionic-demo
 
-       var resourceRequest = new WLResourceRequest("/adapters/demomfpappTestadapter/TestResource/posts",WLResourceRequest.GET);
-       resourceRequest.send().then((response) => {
-         var posts = JSON.parse(response.responseText);
-         alert(posts[0].body);
-      },
-      function(error){
-          alert(JSON.stringify(error));
-      });
+
 
       // WLAuthorizationManager.obtainAccessToken()
       //   .then(
@@ -153,9 +160,14 @@ export class MyApp {
      },
      {
        icon:'md-help-circle',
-       tittle:'Help Center',
+       tittle:'Categories',
        page:null,
        task:()=>{
+
+         if(this.activePage == Categoriespage) return;
+         this.activePage = Categoriespage;
+         this.nav.push(Categoriespage);
+
 
        }
      }

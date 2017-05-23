@@ -18,7 +18,7 @@ export class PushProvider {
 
     MFPPush.initialize(
     function(success){
-      alert('--> Push init success');
+    //  alert('--> Push init success');
 
       MFPPush.registerNotificationsCallback(pushNotificationReceived);
 
@@ -28,7 +28,7 @@ export class PushProvider {
       MFPPush.registerDevice(
         options,
         function(success){
-          alert('--> Push registration success');
+        //  alert('--> Push registration success');
 
           var tag = ['mytag'];
 
@@ -36,7 +36,7 @@ export class PushProvider {
           MFPPush.subscribe(
             tag,
             function(success){
-              alert('--> Push subscribe success');
+            //  alert('--> Push subscribe success');
             },
             function(failure){
               alert('--> Push subscribe failure');

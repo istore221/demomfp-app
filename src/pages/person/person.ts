@@ -18,7 +18,9 @@ export class PersonPage {
     this.person = navParams.get('person');
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad(){
+    WL.Analytics.log({ AppView: 'person' }, "visit person "+this.person.name);
+    WL.Analytics.send();
   }
 
   openUrl(){

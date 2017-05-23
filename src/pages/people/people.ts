@@ -39,6 +39,12 @@ export class PeoplePage {
     this.loadPeople();
   }
 
+  ionViewDidLoad(){
+    WL.Analytics.log({ AppView: 'people' }, "visit people view");
+    WL.Analytics.send();
+  
+  }
+
   createToast(message){
     let toast = this.toastCtrl.create({
        message: message,

@@ -23,6 +23,9 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
 
 
+
+
+
 .container{
 
     width: 100%;
@@ -33,21 +36,25 @@
 
   .box{
     position: relative;
-    width: 80%;
-    background-color: darken(map-get($colors, 'primary'),5%);
+    width: 75%;
+    background-color: lighten(#f1c40f,15%);
     display: inline-block;
     margin: 5px;
-    padding: 12px;
-    border-left: 8px solid darken(map-get($colors, 'primary'),6%);
-    border-right: 8px solid darken(map-get($colors, 'primary'),6%);
+    padding: 22px;
+    vertical-align: top;
+
+    .icon{
+
+      font-size: 2.2rem;
+    }
+
 
     h3{
       font-family:$font-family;
-      color: white;
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 500;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
 
     }
 
